@@ -369,7 +369,7 @@ using UnpackedAny =
 
 const Descriptor* GetAnyTypeDescriptor(const Any& any) {
   std::string type_name;
-  if (!Any::ParseAnyTypeUrl(std::string(any.type_url()), &type_name))
+  if (!google::protobuf::internal::ParseAnyTypeUrl(std::string(any.type_url()), &type_name))
     return nullptr;
   return any.descriptor()->file()->pool()->FindMessageTypeByName(type_name);
 }
@@ -384,13 +384,13 @@ std::unique_ptr<Message> UnpackAny(const Any& any) {
 }
 
 const Any* CastToAny(const Message* message) {
-  return Any::GetDescriptor() == message->GetDescriptor()
+  return Any::descriptor() == message->GetDescriptor()
              ? static_cast<const Any*>(message)
              : nullptr;
 }
 
 Any* CastToAny(Message* message) {
-  return Any::GetDescriptor() == message->GetDescriptor()
+  return Any::descriptor() == message->GetDescriptor()
              ? static_cast<Any*>(message)
              : nullptr;
 }
