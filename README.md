@@ -1,3 +1,5 @@
+branch protobuf-v3.5.0 contains changes to make libprotobuf-mutator compatible with protobuf v3.5.0. No guarantees.
+
 # libprotobuf-mutator
 
 [![TravisCI Build Status](https://travis-ci.org/google/libprotobuf-mutator.svg?branch=master)](https://travis-ci.org/google/libprotobuf-mutator)
